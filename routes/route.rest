@@ -1,0 +1,19 @@
+GET HTTP://localhost:3000/signUp
+
+###
+
+
+POST HTTP://localhost:3000/signUp
+Content-Type: application/json
+
+{
+    "name": "amani",
+    "last_name" : "ben farhat",
+    "username" : "amanibfffggsgggf21",
+    "password": "23884306",
+    "email": "benfarhataggggansff211@gmail.com",
+    "inscription_number" : "11ggffgg223461",
+    "grade" : "1",
+    "role" : "user"
+            
+}
