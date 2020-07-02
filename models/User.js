@@ -6,7 +6,6 @@ const Tag = mongoose.model(
         name : { type : String , unique : false, required : true },
         last_name : { type : String , unique : false, required : true },
         birth : { type : Date , unique : false, required : false },
-        username : { type : String , unique : true, required : true },
         password : { type : String , unique : false, required : true },
         email : { type : String , unique : true, required : true },
         inscription_number : { type : String , unique : false, required : true },

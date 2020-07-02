@@ -42,3 +42,28 @@ exports.postAddUser = async (req, res)=>{
     
     
 };
+
+exports.getAuthentification = (req, res, next)=>{
+    res.send('Authentification')
+};
+exports.postAuthentification = async (req, res, next)=>{
+    const email = req.body.email
+    const password = req.body.password
+    User.findOne({email : email}).then(user =>{
+        bcrypt.compare(password, user.password).then(result =>{
+            if( result == true){
+                res.status(200).json(user);
+            }else{
+                res.status(400).json({message : "wrong password"});
+            }
+            
+        }).catch(error =>{
+            {
+                res.status(404).json({message : error.message});
+            }
+        })
+
+    }).catch(error =>{
+        res.status(404).json({message: error.message});
+    })
+};
