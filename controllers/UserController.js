@@ -24,24 +24,21 @@ exports.postAddUser = async (req, res)=>{
                 role : req.body.role
                 
             })
-            try {
-                user.save().then(NewUser =>{
+             user.save().then(NewUser =>{
                     res.status(201).json(NewUser)
                 }).catch(error =>{
-                    res.status(400).json({message : error.message});
-                    console.log(error)
+                    res.status(400).json({message : "failed to add user" + error.message});
+                    //console.log(error)
                 })
-            } catch (error) {
-                return res.status(400).json({message: error.message})
-                
-            }
+           
 
     }).catch(error =>{
-        return res.status(500).json({message : error.message});
+        return res.status(500).json({message : "failed to hash password" + error.message});
     })
     
     
 };
+
 
 exports.getAuthentification = (req, res, next)=>{
     res.send('Authentification')

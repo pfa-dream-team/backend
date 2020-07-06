@@ -2,17 +2,15 @@ GET HTTP://localhost:3000/signUp
 
 ###
 
-
 POST HTTP://localhost:3000/signUp
 Content-Type: application/json
 
 {
     "name": "amani",
     "last_name" : "ben farhat",
-    "username" : "amanibfffggsgggf21",
     "password": "23884306",
-    "email": "benfarhataggggansff211@gmail.com",
-    "inscription_number" : "11ggffgg223461",
+    "email": "benfarhatamani@gmail.com",
+    "inscription_number" : "2233",
     "grade" : "1",
     "role" : "user"
             
@@ -24,7 +22,10 @@ POST HTTP://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email" : "benfarhatamansi211@gmail.com",
+    "email" : "benfarhatamani@gmail.com",
     "password" : "23884306"
             
 }
+
+
+
