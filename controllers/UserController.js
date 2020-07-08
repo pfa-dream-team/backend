@@ -3,9 +3,7 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 
 
-exports.getAddUser = (req, res, next)=>{
-    res.send('Add User')
-};
+
 
 exports.postAddUser = async (req, res)=>{
     const password = req.body.password
@@ -15,13 +13,13 @@ exports.postAddUser = async (req, res)=>{
             {
                 name: req.body.name,
                 last_name : req.body.last_name,
-                /*birth : Date.now,*/
-                username : req.body.username,
+                birth : req.body.birth,
                 password : hashed,
                 email : req.body.email,
-                inscription_number : req.body.inscription_number,
+                inscription_number : req.body.inscription,
                 grade : req.body.grade,
-                role : req.body.role
+                role : "user",
+                
                 
             })
              user.save().then(NewUser =>{
@@ -39,11 +37,7 @@ exports.postAddUser = async (req, res)=>{
     
 };
 
-
-exports.getAuthentification = (req, res, next)=>{
-    res.send('Authentification')
-};
-exports.postAuthentification = async (req, res, next)=>{
+exports.putAuthentification = async (req, res, next)=>{
     const email = req.body.email
     const password = req.body.password
     User.findOne({email : email}).then(user =>{
@@ -56,11 +50,11 @@ exports.postAuthentification = async (req, res, next)=>{
             
         }).catch(error =>{
             {
-                res.status(404).json({message : error.message});
+                res.status(500).json({message : "failed to compare password"+ error.message});
             }
         })
 
     }).catch(error =>{
-        res.status(404).json({message: error.message});
+        res.status(404).json({message: "user not found with this email "+error.message});
     })
 };
