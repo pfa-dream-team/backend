@@ -28,9 +28,12 @@ app.use(express.json())
 
 //importing user routes
 const UserRoutes = require('./routes/UserRoutes');
+const CvRoutes = require('./routes/CvRoutes');
+
 app.use(cors({origin: "*"}));
 //app.options('*', cors());
 app.use('/',UserRoutes);
+app.use('/cv',CvRoutes);
 // error handler
 
 app.listen(8000, function () {
