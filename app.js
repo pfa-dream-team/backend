@@ -29,14 +29,17 @@ app.use(express.json())
 //importing user routes
 const UserRoutes = require('./routes/UserRoutes');
 const CvRoutes = require('./routes/CvRoutes');
+const EducationRoutes = require('./routes/EducationRoutes');
+
 
 app.use(cors({origin: "*"}));
 //app.options('*', cors());
 app.use('/',UserRoutes);
 app.use('/cv',CvRoutes);
+app.use('/eductaion',EducationRoutes);
 // error handler
 
 app.listen(8000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('Example app listening on port 8000!')
 })
 module.exports = app;

@@ -1,0 +1,64 @@
+POST HTTP://localhost:8000/signUp
+Content-Type: application/json
+
+{
+    "name": "user",
+    "last_name" : "user",
+    "password": "23884306",
+    "email": "user@gmail.com",
+    "inscription" : "2233",
+    "grade" : "1",
+    "role" : "user",
+    "birth" : "2002-12-09"
+            
+}
+
+###
+
+PUT HTTP://localhost:8000/login
+Content-Type: application/json
+
+{
+    "email" : "benfarhatamani@gmail.com",
+    "password" : "23884306"
+            
+}
+
+###
+
+GET HTTP://localhost:8000/users
+
+###
+
+GET HTTP://localhost:8000/users/5f09c5362125af1988dc247e
+
+###
+
+DELETE HTTP://localhost:8000/users/delete/5f0c22290a985726d4e3aa65
+
+###
+
+PATCH HTTP://localhost:8000/users/edit/5f0c1e7fcdffb81ed4c54329
+Content-Type: application/json
+
+{
+    "name": "rawen",
+    "last_name" : "marseni",
+    "password": "2388436",
+    "email": "rawenmarsni@gmail.com",
+    "inscription" : "2233",
+    "grade" : "1",
+    "role" : "user",
+    "birth" : "2002-12-09"
+            
+}
+
+###
+
+PATCH HTTP://localhost:8000/users/active/5f0c1e7fcdffb81ed4c54329
+
+###
+
+PATCH HTTP://localhost:8000/users/banish/5f0c1e7fcdffb81ed4c54329
+
+###

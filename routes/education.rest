@@ -1,0 +1,38 @@
+
+POST HTTP://localhost:8000/eductaion/addEducation
+Content-Type: application/json
+
+{
+    "id": "5f0c3345d5280724fce1ba39",
+    "diploma" : "NATIONAL DIPLOMA IN COMPUTER ENGINEERING ",
+    "institut": "TECHNICIAN DIPLOMA IN COMPUTER SCIENCE AND MULTIMEDIA",
+    "start": "2002-12-09",
+    "end" : "2002-12-09"
+            
+}
+
+###
+
+Patch HTTP://localhost:8000/eductaion/edit/5f0c460dc3279301e465941b
+Content-Type: application/json
+
+{
+    "id": "5f0c3345d5280724fce1ba39",
+    "diploma" : "NATIONAL DIPLOMA IN COMPUTER ENGINEERING ",
+    "institut": "TECHNICIAN DIPLOMA IN COMPUTER SCIENCE AND MULTIMEDIA",
+    "start": "2002-12-19",
+    "end" : "2002-12-19"
+            
+}
+
+###
+
+
+DELETE  HTTP://localhost:8000/eductaion/delete/5f0c465ac3279301e465941e
+Content-Type: application/json
+
+{
+    "id_cv": "5f0c3345d5280724fce1ba39"
+            
+}
+
