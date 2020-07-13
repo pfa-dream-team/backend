@@ -30,6 +30,8 @@ app.use(express.json())
 const UserRoutes = require('./routes/UserRoutes');
 const CvRoutes = require('./routes/CvRoutes');
 const EducationRoutes = require('./routes/EducationRoutes');
+const ExperienceRoutes = require('./routes/ExperienceRoutes');
+
 
 
 app.use(cors({origin: "*"}));
@@ -37,6 +39,8 @@ app.use(cors({origin: "*"}));
 app.use('/',UserRoutes);
 app.use('/cv',CvRoutes);
 app.use('/eductaion',EducationRoutes);
+app.use('/experience',ExperienceRoutes);
+
 // error handler
 
 app.listen(8000, function () {

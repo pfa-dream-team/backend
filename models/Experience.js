@@ -8,7 +8,7 @@ const Tag = mongoose.model(
         agency : { type : String , unique : false, required : true },
         start : { type : Date , unique : false, required : false },
         end : { type : Date , unique : false, required : false },
-        description : { type : Text , unique : false, required : true },
+        description : { type : String , unique : false, required : true },
 
     
     })
