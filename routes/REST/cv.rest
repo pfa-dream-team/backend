@@ -3,7 +3,7 @@ POST HTTP://localhost:8000/cv/addCv
 Content-Type: application/json
 
 {
-    "id": "5f09c5362125af1988dc247e",
+    "user_id": "5f09c5362125af1988dc247e",
     "address" : "rue dawha, 2129",
     "tel": "23884306",
     "linkedin": "https://www.linkedin.com/in/amani-bf/",

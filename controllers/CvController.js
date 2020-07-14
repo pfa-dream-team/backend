@@ -14,7 +14,7 @@ exports.getAllCvs = async (req,res )=>{
 // Adding new Cv
 exports.postAddCv = async (req,res) =>{
     try {
-    user = await User.findById(req.body.id)
+    user = await User.findById(req.body.user_id)
     cv = new Cv({
         address : req.body.address,
         email : user.email,
@@ -31,7 +31,7 @@ exports.postAddCv = async (req,res) =>{
         return res.json(result)
       }
     } catch (error) {
-        return res.status(500).json({ message: err.message })
+        return res.status(500).json({ message: error.message })
         
     }
     
