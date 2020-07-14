@@ -5,8 +5,8 @@ Content-Type: application/json
     "name": "user",
     "last_name" : "user",
     "password": "23884306",
-    "email": "user@gmail.com",
-    "inscription" : "2233",
+    "email": "user2@gmail.com",
+    "inscription" : "22433",
     "grade" : "1",
     "role" : "user",
     "birth" : "2002-12-09"
@@ -19,7 +19,7 @@ PUT HTTP://localhost:8000/login
 Content-Type: application/json
 
 {
-    "email" : "benfarhatamani@gmail.com",
+    "email" : "benfarhatamani1@gmail.com",
     "password" : "23884306"
             
 }
@@ -38,7 +38,7 @@ DELETE HTTP://localhost:8000/users/delete/5f0c22290a985726d4e3aa65
 
 ###
 
-PATCH HTTP://localhost:8000/users/edit/5f0c1e7fcdffb81ed4c54329
+PUT  HTTP://localhost:8000/users/edit/5f0c1e7fcdffb81ed4c54329
 Content-Type: application/json
 
 {
@@ -55,10 +55,3 @@ Content-Type: application/json
 
 ###
 
-PATCH HTTP://localhost:8000/users/active/5f0c1e7fcdffb81ed4c54329
-
-###
-
-PATCH HTTP://localhost:8000/users/banish/5f0c1e7fcdffb81ed4c54329
-
-###

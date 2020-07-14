@@ -12,7 +12,7 @@ const Tag = mongoose.model(
         grade : { type : String , unique : false, required : true },
         role : { type : String , unique : false, required : true },
         join_date : { type : Date , unique : false, default : Date.now },
-        active : { type : Number , unique : false, default : 0 },
+        active : { type : Boolean , unique : false, default : 0 },
         cv : {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Cv"

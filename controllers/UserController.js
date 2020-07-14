@@ -29,7 +29,7 @@ exports.deleteDeleteUser = async (req, res) =>{
     
 }
 // Editing One user
-exports.patchEditUser = async (req, res) =>{
+exports.putEditUser = async (req, res) =>{
     try {
         user = await User.findById(req.params.id)
         user.name = req.body.name
@@ -40,8 +40,8 @@ exports.patchEditUser = async (req, res) =>{
         user.grade = req.body.grade
         user.role = req.body.role
         const NewUser = await user.save();
-        res.status(200).json(NewUser)
-  
+        const NewUsers = await User.find();
+        res.status(200).json(NewUsers)
       } catch (err) {
         return res.status(500).json({ message: err.message })
 
@@ -52,9 +52,10 @@ exports.patchEditUser = async (req, res) =>{
 exports.patchActivateUser = async (req, res) =>{
     try {
         user = await User.findById(req.params.id)
-        user.active = 1
-        const NewUser = await user.save();
-        res.status(200).json(NewUser)
+        user.active = req.body.active
+        await user.save();
+        const users = await User.find();
+        res.status(200).json(users)
   
       } catch (err) {
         return res.status(500).json({ message: err.message })
@@ -62,20 +63,7 @@ exports.patchActivateUser = async (req, res) =>{
       }
     
 }
-// Banish One user
-exports.patchBanishUser = async (req, res) =>{
-    try {
-        user = await User.findById(req.params.id)
-        user.active = 0
-        const NewUser = await user.save();
-        res.status(200).json(NewUser)
-  
-      } catch (err) {
-        return res.status(500).json({ message: err.message })
 
-      }
-    
-}
 //Getting All users
 exports.getAllUser = async (req,res )=>{
     try {
