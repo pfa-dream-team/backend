@@ -2,10 +2,21 @@ const express = require('express')
 const mongoose = require("mongoose")
 const User = require('../models/User')
 const Cv = require('../models/Cv')
+// Getting One Cv
+exports.getCv = async (req,res )=>{
+  try {
+      cv = await Cv.findById(req.params.id).populate('eductaion').populate('experience')
+      //JSON.parse(JSON.stringify(cvs))
+      res.json(cv)
+    } catch (err) {
+      res.status(500).json({ message: err.message })
+    }
+}
 // Getting aLL CVS
 exports.getAllCvs = async (req,res )=>{
   try {
-      cvs = await Cv.find();
+      cvs = await Cv.find().populate('eductaion').populate('experience')
+      //JSON.parse(JSON.stringify(cvs))
       res.json(cvs)
     } catch (err) {
       res.status(500).json({ message: err.message })
@@ -17,7 +28,10 @@ exports.postAddCv = async (req,res) =>{
     user = await User.findById(req.body.user_id)
     cv = new Cv({
         address : req.body.address,
+        position : req.body.position,
         email : user.email,
+        name : user.name,
+        last_name : user.last_name,
         tel : req.body.tel,
         linkedin : req.body.linkedin,
         facebook : req.body.facebook

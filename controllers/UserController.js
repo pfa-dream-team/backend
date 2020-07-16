@@ -1,12 +1,14 @@
 const express = require('express')
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
+var mongoose = require('mongoose');
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 
 // Getting One user
 exports.getUser = async (req, res) =>{
     try {
-        user = await User.findById(req.params.id)
+        user = await (await User.findById(req.params.id)).populate('cv')
         if (user == null) {
           return res.status(404).json({ message: 'Cannot find subscriber' })
         }else{
@@ -67,7 +69,8 @@ exports.patchActivateUser = async (req, res) =>{
 //Getting All users
 exports.getAllUser = async (req,res )=>{
     try {
-        users = await User.find()
+        users = await User.find().populate({ path: 'cv', populate: { path: 'experience' }}).exec()
+        
         res.json(users)
       } catch (err) {
         res.status(500).json({ message: err.message })
@@ -109,7 +112,7 @@ exports.postAddUser = async (req, res)=>{
 exports.putAuthentification = async (req, res, next)=>{
     const email = req.body.email
     const password = req.body.password
-    User.findOne({email : email}).then(user =>{
+    User.findOne({email : email}).populate("cv").then(user =>{
         bcrypt.compare(password, user.password).then(result =>{
             if( result == true){
                 res.status(200).json(user);

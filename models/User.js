@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 
+
 const Tag = mongoose.model(
     "User",
     new mongoose.Schema({
@@ -19,5 +20,4 @@ const Tag = mongoose.model(
         }    
     })
   );
-  
   module.exports = Tag;

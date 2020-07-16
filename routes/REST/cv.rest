@@ -31,3 +31,7 @@ Content-Type: application/json
     "facebook" : "https://www.facebook.com/amani.bf/"
             
 }
+
+###
+
+GET HTTP://localhost:8000/cv/getCv/5f0c3345d5280724fce1ba39
