@@ -36,9 +36,10 @@ const ExperienceRoutes = require('./routes/ExperienceRoutes');
 
 app.use(cors({origin: "*"}));
 //app.options('*', cors());
+mongoose.set('useFindAndModify', false);
 app.use('/',UserRoutes);
 app.use('/cv',CvRoutes);
-app.use('/eductaion',EducationRoutes);
+app.use('/education',EducationRoutes);
 app.use('/experience',ExperienceRoutes);
 
 // error handler

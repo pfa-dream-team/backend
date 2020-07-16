@@ -15,15 +15,14 @@ exports.postAddEducation = async (req,res) =>{
        
     })
     Saved_Education = await eductaion.save();
-    const Newcv = await Cv.findByIdAndUpdate(req.body.id,{
+    const cv = await Cv.findByIdAndUpdate(req.body.cv_id,{
       $push: {
         eductaion: Saved_Education
     } })
-    if (Newcv == null) {
-        return res.status(404).json({ message: "Cannot save eductaion " })
-      }else{
-        return res.json(Newcv)
-      }
+    const Newcv = await Cv.findById(req.body.cv_id).populate('eductaion').populate('experience')
+    if (Newcv !== null) {
+      return res.json(Newcv)
+    }
     } catch (error) {
         return res.status(500).json({ message: error.message })
         

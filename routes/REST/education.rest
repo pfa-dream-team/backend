@@ -1,12 +1,12 @@
 
-POST HTTP://localhost:8000/eductaion/addEducation
+post HTTP://localhost:8000/education/addEducation
 Content-Type: application/json
 
 {
-    "id": "5f0c3345d5280724fce1ba39",
+    "cv_id": "5f0c3345d5280724fce1ba39",
     "diploma" : "NATIONAL DIPLOMA IN COMPUTER ENGINEERING ",
     "institut": "TECHNICIAN DIPLOMA IN COMPUTER SCIENCE AND MULTIMEDIA",
-    "start": "2002-12-09",
+    "start" : "2002-12-09",
     "end" : "2002-12-09"
             
 }
