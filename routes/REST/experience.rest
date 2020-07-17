@@ -3,7 +3,7 @@ POST HTTP://localhost:8000/experience/addExperience
 Content-Type: application/json
 
 {
-    "id": "5f0c3345d5280724fce1ba39",
+    "cv_id": "5f0c3345d5280724fce1ba39",
     "position" : "NATIONAL DIPLOMA IN COMPUTER ENGINEERING ",
     "agency": "TECHNICIAN DIPLOMA IN COMPUTER SCIENCE AND MULTIMEDIA",
     "start": "2002-12-09",

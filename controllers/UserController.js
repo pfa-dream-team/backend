@@ -1,7 +1,9 @@
 const express = require('express')
 const User = require('../models/User')
+const Cv = require('../models/Cv')
 const bcrypt = require('bcryptjs')
 var mongoose = require('mongoose');
+const { findOne } = require('../models/User');
 var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 
@@ -112,9 +114,11 @@ exports.postAddUser = async (req, res)=>{
 exports.putAuthentification = async (req, res, next)=>{
     const email = req.body.email
     const password = req.body.password
-    User.findOne({email : email}).populate("cv").then(user =>{
+    /*User.findOne({email : email}).populate("cv").then(user =>{
         bcrypt.compare(password, user.password).then(result =>{
             if( result == true){
+                const cv = await Cv.findById(user.cv._id).populate('eductaion').populate('experience')
+                user.cv = cv;
                 res.status(200).json(user);
             }else{
                 res.status(400).json({message : "wrong password"});
@@ -128,5 +132,22 @@ exports.putAuthentification = async (req, res, next)=>{
 
     }).catch(error =>{
         res.status(404).json({message: "user not found with this email "+error.message});
-    })
+    })*/
+    const user = await User.findOne({email : email});
+    if (user !== null) {
+      result = await bcrypt.compare(password, user.password)
+      if (result === true) {
+         const cv_id = user.cv._id
+         const cv = await Cv.findById(cv_id).populate('eductaion').populate('experience')
+         user.cv = cv;
+         res.status(200).json(user);
+       }else{
+         res.status(400).json({message : "wrong password"});
+   
+       }
+
+    }else{
+      res.status(404).json({message: "user not found with this email "+error.message});
+    }
+    
 };

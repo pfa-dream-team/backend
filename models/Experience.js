@@ -6,8 +6,8 @@ const Tag = mongoose.model(
     new mongoose.Schema({
         position : { type : String , unique : false, required : true },
         agency : { type : String , unique : false, required : true },
-        start : { type : Date , unique : false, required : false },
-        end : { type : Date , unique : false, required : false },
+        start : { type : String , unique : false, required : false },
+        end : { type : String , unique : false, required : false },
         description : { type : String , unique : false, required : true },
 
     

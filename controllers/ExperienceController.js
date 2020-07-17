@@ -16,16 +16,15 @@ exports.postAddExperience = async (req,res) =>{
        
     })
     Saved_Experience = await experience.save();
-    await Cv.findByIdAndUpdate(req.body.id,{
+    await Cv.findByIdAndUpdate(req.body.cv_id,{
       $push: {
         experience : Saved_Experience
     } })
-    const Newcv = await Cv.findById(req.body.id)
-    if (Newcv == null) {
-        return res.status(404).json({ message: "Cannot save experience " })
-      }else{
+    const Newcv = await Cv.findById(req.body.cv_id).populate('eductaion').populate('experience')
+    if (Newcv !== null) {
+     
         return res.json(Newcv)
-      }
+    }
     } catch (error) {
         return res.status(500).json({ message: error.message })
         
