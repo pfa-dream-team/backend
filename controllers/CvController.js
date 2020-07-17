@@ -52,6 +52,25 @@ exports.postAddCv = async (req,res) =>{
     
 
 }
+// Adding new Comptence
+exports.postAddCompetence = async (req,res) =>{
+  try {
+    await Cv.findByIdAndUpdate(req.body.cv_id,{
+      $push: {
+        competence : req.body.skill
+    } })
+  const cv = await Cv.findById(req.body.cv_id).populate('eductaion').populate('experience')
+  if (cv !== null) {
+      return res.json(cv)
+    }
+  } catch (error) {
+      return res.status(500).json({ message: error.message })
+      
+  }
+  
+  
+
+}
 // Delleting One user
 exports.deleteDeleteCv = async (req, res) =>{
   try {

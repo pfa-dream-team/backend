@@ -3,6 +3,7 @@ const router = express.Router()
 const CvController = require("../controllers/CvController")
 
 router.post("/addCv",CvController.postAddCv)
+router.post("/addCompetence",CvController.postAddCompetence)
 router.get("/AllCvs",CvController.getAllCvs)
 router.get("/getCv/:id",CvController.getCv)
 router.delete("/delete/:id",CvController.deleteDeleteCv)

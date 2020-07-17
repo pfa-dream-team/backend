@@ -35,3 +35,14 @@ Content-Type: application/json
 ###
 
 GET HTTP://localhost:8000/cv/getCv/5f0c3345d5280724fce1ba39
+
+###
+
+POST HTTP://localhost:8000/cv/addCompetence
+Content-Type: application/json
+
+{
+    "cv_id" : "5f117406f0e0b537d4b01b82",
+    "skill" : "php"
+            
+}
