@@ -1,0 +1,31 @@
+
+POST HTTP://localhost:8000/document/addDocument
+Content-Type: application/json
+
+{
+    "user_id": "5f0d939664e3e43f1001fba2",
+    "name" : "NATIONAL DIPLOMA IN COMPUTER ENGINEERING ",
+    "url": "TECHNICIAN DIPLOMA IN COMPUTER SCIENCE AND MULTIMEDIA",
+    "cible" : ["im","cm"],
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor."
+            
+}
+###
+
+GET HTTP://localhost:8000/document/allDocuments
+
+###
+DELETE  HTTP://localhost:8000/document/deleteDocument/5f21a649ae9e0c3298c029aa
+
+###
+
+PATCH HTTP://localhost:8000/document/editDocument/5f21b94e6f7c0e3d709e0ae3
+Content-Type: application/json
+
+{
+    "name" : "NATIONAL DIPLOMA IN COMPUTER ENGINEERING ",
+    "url": "TECHNICIAN DIPLOMA IN COMPUTER SCIENCE AND MULTIMEDIA",
+    "cible" : ["im","cm"],
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor."
+            
+}

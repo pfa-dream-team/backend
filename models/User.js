@@ -17,7 +17,13 @@ const Tag = mongoose.model(
         cv : {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Cv"
-        }    
+        },
+        documents : [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Document"
+            }
+        ],    
     })
   );
   module.exports = Tag;

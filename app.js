@@ -31,6 +31,8 @@ const UserRoutes = require('./routes/UserRoutes');
 const CvRoutes = require('./routes/CvRoutes');
 const EducationRoutes = require('./routes/EducationRoutes');
 const ExperienceRoutes = require('./routes/ExperienceRoutes');
+const DocumentRoutes = require('./routes/DocumentRoutes');
+
 
 
 
@@ -41,6 +43,8 @@ app.use('/',UserRoutes);
 app.use('/cv',CvRoutes);
 app.use('/education',EducationRoutes);
 app.use('/experience',ExperienceRoutes);
+app.use('/document',DocumentRoutes);
+
 
 // error handler
 
