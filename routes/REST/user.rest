@@ -19,7 +19,7 @@ PUT HTTP://localhost:8000/login
 Content-Type: application/json
 
 {
-    "email" : "benfarhatamani1@gmail.com",
+    "email" : "testerdd@gmail.com",
     "password" : "23884306"
             
 }

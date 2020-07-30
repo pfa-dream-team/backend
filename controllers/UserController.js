@@ -137,13 +137,14 @@ exports.putAuthentification = async (req, res, next)=>{
     if (user !== null) {
       result = await bcrypt.compare(password, user.password)
       if (result === true) {
-         const cv_id = user.cv._id
-         const cv = await Cv.findById(cv_id).populate('eductaion').populate('experience')
-         user.cv = cv;
+        if(user.cv !== undefined){
+          const cv_id = user.cv._id
+          const cv = await Cv.findById(cv_id).populate('eductaion').populate('experience')
+          user.cv = cv;
+        }
          res.status(200).json(user);
        }else{
          res.status(400).json({message : "wrong password"});
-   
        }
 
     }else{

@@ -87,3 +87,12 @@ exports.patchEditDocument = async (req,res) =>{
     
 
 }
+// Getting User Documents
+exports.getAllUserDocuments = async (req,res )=>{
+  try {
+      user = await User.findById(req.params.id).populate('documents')
+      res.json(user)
+    } catch (err) {
+      res.status(500).json({ message: err.message })
+    }
+}

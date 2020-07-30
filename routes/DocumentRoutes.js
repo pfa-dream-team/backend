@@ -6,6 +6,8 @@ router.post("/addDocument",DocumentController.postAddDocument)
 router.get("/allDocuments",DocumentController.getAllDocuments)
 router.delete("/deleteDocument/:id",DocumentController.deleteDocument)
 router.patch("/editDocument/:id",DocumentController.patchEditDocument)
+router.get("/allUserDocuments/:id",DocumentController.getAllUserDocuments)
+
 
 
 
